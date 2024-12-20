@@ -42,6 +42,18 @@ namespace ServiceLocator.UI
         private PlayerService playerService;
 
 
+        public void Init(EventService eventService, WaveService waveService, PlayerService playerService)
+        {
+            this.eventService = eventService;
+            this.waveService = waveService;
+            this.playerService = playerService;
+
+            SubscribeToEvents();
+            StartUI();
+
+            Map1Button.Init(eventService);
+        }
+
         private void StartUI()
         {
             monkeySelectionController = new MonkeySelectionUIController(playerService, cellContainer, monkeyCellPrefab, monkeyCellScriptableObjects);
@@ -55,18 +67,6 @@ namespace ServiceLocator.UI
             nextWaveButton.onClick.AddListener(OnNextWaveButton);
             quitButton.onClick.AddListener(OnQuitButtonClicked);
             playAgainButton.onClick.AddListener(OnPlayAgainButtonClicked);
-        }
-
-        public void Init(EventService eventService, WaveService waveService, PlayerService playerService)
-        {
-            this.eventService = eventService;
-            this.waveService = waveService;
-            this.playerService = playerService;
-
-            SubscribeToEvents();
-            StartUI();
-
-            Map1Button.Init(eventService);
         }
 
         public void SubscribeToEvents() => eventService.OnMapSelected.AddListener(OnMapSelected);
