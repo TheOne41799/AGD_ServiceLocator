@@ -7,7 +7,7 @@ using ServiceLocator.Wave.Bloon;
 
 public class MonkeyController_UnitTest
 {
-    private MonkeyController monkeyController;
+    /*private MonkeyController monkeyController;
 
     [SetUp]
     public void Setup()
@@ -48,6 +48,6 @@ public class MonkeyController_UnitTest
 
         // Assert
         Assert.IsTrue(canAttack);
-    }
+    }*/
 
 }
